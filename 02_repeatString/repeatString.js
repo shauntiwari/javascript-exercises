@@ -1,11 +1,14 @@
 const repeatString = function(text, num) {
-    let finalString = '';
     
-    for (let i = 1; i <= num; i++) {
-        finalString = finalString + text;
+    if (num < 0) {
+        return 'ERROR';
+    } else {
+        let finalString = '';
+        for (let i = 1; i <= num; i++) {
+            finalString = finalString + text;
+        }
+        return finalString;
     }
-
-    return finalString;
 };
 
 repeatString('hey', 3) // returns 'heyheyhey'
