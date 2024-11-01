@@ -1,9 +1,8 @@
-const removeFromArray = function(items, removeThis) {
-    let newItems = items;
-    for(let item of items) {
-        if (item === removeThis) {
-            newItems.splice(items.indexOf(item), 1);
-        }
+const removeFromArray = function(items, ...removeThese) {
+    let newItems = [...items];  // create a new independent "deep copy" of the array
+                                // so I won't modify the original one
+    for(let item of newItems) {
+        newItems = newItems.filter(item => !removeThese.includes(item));
     }
     return newItems;
 };
